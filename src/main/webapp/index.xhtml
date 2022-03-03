@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Tareja Ejb</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            Informe seu nome:
+            <h:inputText value="#{jsfUsuario.nome}" size="10" />
+            <h:commandButton value="Ok"  
+                             action="#{jsfUsuario.valores()}"/>
+            <br/>
+            <h:column>
+                <h:outputText value="#{jsfUsuario.valor1}"  />
+                <h:outputText value="+" />
+                <h:outputText value="#{jsfUsuario.valor2}"/>
+                <h:outputText value=" = " />
+                <h:inputText value="#{jsfRanking.valorInformado}" size="4" />  
+                <h:commandButton value="verificar"
+                                 actionListener="#{jsfRanking.somar(jsfUsuario.valor1, jsfUsuario.valor2)}"
+                                 action="#{jsfRanking.add(jsfUsuario.nome)}"/>
+                <h:message for="ctx" style="color: red" />
+
+
+            </h:column>
+
+        </h:form>
+        ====== Ranking ======
+        <h:form>
+            <h:dataTable value="#{jsfRanking.all}" var="ranking">
+                <h:column>
+                    <h:outputText value="#{ranking.nome}" />
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{ranking.quantidade}" />
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+        
+           <h:form>
+            <h:inputText value="#{jsfUsuario.mensagem}" size="4" /> 
+            <h:commandButton value="Enviar Mensagem"
+                             action="#{jsfUsuario.send()}"/>
+            
+        </h:form>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,9 @@
+br\SampleResource.class
+br\ejb\EjbConsumidor.class
+br\ejb\EjbUsuario.class
+br\jsf\JsfRanking.class
+br\data\model\Usuario.class
+br\data\model\ListaRanking.class
+br\data\crud\EjbRanking.class
+br\JAXRSConfiguration.class
+br\jsf\JsfUsuario.class
